@@ -55,15 +55,40 @@ enum CounterAction: Equatable {
 ## 코드 흐름 (Mermaid 시퀀스)
 ```mermaid
 sequenceDiagram
-    participant User
-    participant View
-    participant Store
-    participant Reducer
-    User->>View: 버튼 클릭 (+)
-    View->>Store: send(.increment)
-    Store->>Reducer: Reducer(state, .increment)
-    note over Store, Reducer: state.count += 1
-    Store-->>View: UI 업데이트
+  autonumber
+  actor U as User
+  participant V as View
+  participant S as Store
+  participant R as Reducer
+  participant St as State
+
+  %% Phase: Trigger
+  rect rgb(242, 248, 255)
+    note over U,V: 사용자 상호작용
+    U->>V: 버튼 탭 (Increment/Decrement)
+    V->>S: send(Action)
+  end
+
+  %% Phase: Reduce
+  rect rgb(245, 245, 245)
+    note over S,R: 액션 처리
+    S->>R: reduce(State, Action)
+    R->>St: 상태 변경(불변 업데이트)
+    St-->>S: 새로운 State 반환
+  end
+
+  %% Phase: Render
+  rect rgb(240, 255, 240)
+    note over V: UI 갱신
+    S-->>V: State 변경 통지
+    V-->>U: 업데이트된 값 표시
+  end
+
+  alt 에러/검증 실패
+    R-->>S: 변경 없음 또는 에러 처리
+    S-->>V: 상태 유지/에러 표시
+  end
+
 ```
 
 ## Chapter 2 요약
