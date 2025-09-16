@@ -59,13 +59,11 @@ sequenceDiagram
     participant View
     participant Store
     participant Reducer
-    participant State
-
     User->>View: 버튼 클릭 (+)
     View->>Store: send(.increment)
     Store->>Reducer: Reducer(state, .increment)
-    Reducer->>State: count += 1
-    State-->>View: UI 업데이트
+    note over Store, Reducer: state.count += 1
+    Store-->>View: UI 업데이트
 ```
 
 ## Chapter 2 요약
