@@ -4,3 +4,4 @@
 # TCA
 - [Chapter1](TCA/Chapter1.md)
 - [Chapter2](TCA/Chapter2.md)
+- [Chapter3](TCA/Chapter3.md)
