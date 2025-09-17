@@ -100,6 +100,12 @@ struct CounterView: View {
 - SwiftUI의 선언적 UI와 잘 어울림
 - 앞으로의 학습에서 이 Counter 예제를 시작으로 → Effects, Composability, Testing 등 확장
 
+## 최신 버전 기준 보완 사항
+- **`ReducerProtocol` 사용**: 최근 TCA에서는 `ReducerProtocol`을 통해 `State`와 `Action`을 reducer 내부에서 정의하는 방식이 기본임.
+- **`Environment` → `Dependencies`**: 이제는 `Environment` 대신 `@Dependency`와 `DependencyValues`로 외부 의존성을 주입하는 방식이 권장됨.
+- **`Effect` 처리**: Combine 기반뿐 아니라 async/await을 지원하는 `.task`, `.run` API 중심으로 업데이트됨.
+- **네비게이션/알럿**: 최신 버전에서는 `@PresentationState`, `@PresentationAction` 등 속성 래퍼를 활용하는 방식이 추가됨.
+- **Testing**: `TestStore`는 여전히 중심이지만, 최신 문법에서는 의존성 오버라이드와 시간 제어 기능이 강화됨.
 
 ## 📌 Chapter 1 질문 & 답변
 ### ❓ 1. 왜 MVVM 대신 TCA를 써야 하나요?
