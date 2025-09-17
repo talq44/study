@@ -7,10 +7,12 @@
 ```swift
 Reducer<State, Action, Environment>
 ```
-- Input: 현재 State, 들어온 Action, 외부 의존성 Environment
+- Input: ~~현재 State, 들어온 Action, 외부 의존성 Environment~~
+  - 기존에는 Environment 타입으로 관리하던 의존성을 @Dependency라는 프로퍼티 래퍼로 대체했습니다.
 - Output: 변경된 State + 실행할 Effect
 
 ## Counter Reducer 예제
+### 과거
 ```swift
 let counterReducer = Reducer<CounterState, CounterAction, CounterEnvironment> { state, action, environment in
     switch action {
@@ -25,6 +27,32 @@ let counterReducer = Reducer<CounterState, CounterAction, CounterEnvironment> { 
 ```
 - .none : 실행할 사이드 이펙트가 없음을 의미
 - 즉, 단순히 상태만 바꾸고 끝
+### 최근
+```swift
+struct CounterFeature: Reducer {
+    @Dependency(\.continuousClock) var clock
+    var body: some ReducerOf<Self> {
+        Reduce { state, action in
+            switch action {
+            case .toggleTimerButtonTapped:
+                state.isTimerOn.toggle()
+                if state.isTimerOn {
+                    return .run { send in
+												// 주입된 의존성 활용
+                        for await _ in self.clock.timer(interval: .seconds(1)) {
+                          await send(.timerTicked)
+                        }
+                    }
+                    .cancellable(id: CancelID.timer)
+                } else {
+                    // Stop the timer
+                    return .cancel(id: CancelID.timer)
+                }
+            }
+        }
+    }
+}
+```
 
 ## Reducer의 특징
 1. 순수 함수 (Pure Function)
