@@ -70,13 +70,10 @@ struct CounterFeature: Reducer {
 sequenceDiagram
     participant Store
     participant Reducer
-    participant State
     participant Effect
-
     Store->>Reducer: (state, action, environment)
-    Reducer->>State: 상태 변경
-    Reducer->>Effect: Effect 반환 (.none or async work)
-    State-->>Store: 업데이트된 상태
+    note right of Reducer: state를 직접 변경 (in-place mutation)
+    Reducer-->>Store: Effect 반환 (.none or async work)
     Effect-->>Store: (optional) 새로운 액션 발행
 ```
 
@@ -105,7 +102,7 @@ let counterReducer = Reducer<CounterState, CounterAction, CounterEnvironment> { 
 
     case .randomButtonTapped:
         let value = env.generateRandom()
-        return Effect(value: .randomResponse(value))  // Effect 반환
+        return .send(.randomResponse(value))  // Effect 반환
 
     case let .randomResponse(value):
         state.count = value
@@ -127,7 +124,7 @@ let counterReducer = Reducer<CounterState, CounterAction, CounterEnvironment> { 
 - 심화 답변: Reducer는 상태 변화만 담당해야 합니다. 네트워크 호출은 Effect로 분리해야 테스트 가능성과 일관성이 유지됩니다.
 
 ### ❓ 여러 Reducer를 어떻게 합치나요?
-- 간단 답변: combine 이나 pullback을 이용해 작은 Reducer들을 합칩니다.
+- 간단 답변: `combine` 이나 `pullback`을 이용해 작은 Reducer들을 합칩니다.
 - 심화 답변: 이렇게 하면 Feature 단위로 나눈 Reducer를 재사용하고, 대규모 앱을 계층적으로 구성할 수 있습니다. (6장에서 자세히 다룸)
 
 ### ❓ Reducer에서 Environment가 필요한 이유는?
