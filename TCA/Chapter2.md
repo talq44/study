@@ -91,6 +91,14 @@ sequenceDiagram
 
 ```
 
+
+## 최신 버전 기준 보완 사항
+- `ReducerProtocol` 기반으로 State와 Action을 reducer 내부에 정의하는 방식이 권장됨. 따라서 `CounterFeature: ReducerProtocol` 구조 예제를 추가.
+- `Environment` 대신 `@Dependency`와 `DependencyValues`를 사용해 외부 의존성을 선언/주입하는 것이 최신 권장 방식임.
+- Async/await 기반 액션 처리(`Effect.task`, `Effect.run`)가 지원되어 비동기 액션 정의가 간결해짐.
+- 최신 버전에서는 State와 Action이 네임스페이스 단위(Feature 내부)로 관리되어 충돌이 줄고 코드 가독성이 향상됨.
+
+
 ## Chapter 2 요약
 - State = 앱의 데이터 (struct + Equatable)
 - Action = 상태를 변화시키는 이벤트 (enum + Equatable)
