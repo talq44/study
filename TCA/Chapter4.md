@@ -97,13 +97,11 @@ sequenceDiagram
     participant View
     participant Store
     participant Reducer
-    participant State
-
     User->>View: 버튼 클릭 (+)
     View->>Store: send(.increment)
     Store->>Reducer: reduce(into: &state, .increment)
-    Reducer->>State: count += 1
-    State-->>Store: 새로운 상태
+    note right of Reducer: state.count += 1
+    Reducer-->>Store: Effect 반환 (.none)
     Store-->>View: 상태 반영 → UI 업데이트
 ```
 
