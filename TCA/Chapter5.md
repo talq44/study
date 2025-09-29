@@ -109,3 +109,6 @@ sequenceDiagram
 - 취소(Cancellation)는 실무에서 매우 중요
 - 의존성은 @Dependency를 통해 주입
 - Reducer는 순수성을 유지하고, Effect는 외부 세계와의 상호작용 담당
+
+## 내용 참고
+- https://axiomatic-fuschia-666.notion.site/Chapter-3-TCA-2-c56b24efb2154dad9ed8e54139247024
