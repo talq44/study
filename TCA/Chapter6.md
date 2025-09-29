@@ -129,3 +129,6 @@ struct AppFeature: Reducer {
 - 최신 방식은 ReducerProtocol + Scope, ForEach, ifLet 활용
 - Store도 부분 Store를 잘라내 전달하는 방식이 핵심
 - 전역 Store 공유는 지양하고, Feature 단위로 상태/액션을 모듈화
+
+## 참고 페이지
+- https://axiomatic-fuschia-666.notion.site/Chapter-7-MultiStore-1e8734581d104073b9d0ec3697f5ee1d
