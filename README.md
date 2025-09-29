@@ -8,3 +8,4 @@
 - [Chapter 4. The Store](TCA/Chapter4.md)
 - [Chapter 5. Effect](TCA/Chapter5.md)
 - [Chapter 6. Composability](TCA/Chapter6.md)
+- [Chapter 7. Testing](TCA/Chapter7.md)
