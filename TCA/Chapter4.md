@@ -79,7 +79,7 @@ struct MyApp: App {
   - → 비동기 작업은 Effect에서 background에서 수행 → 완료 후 Store로 돌아올 때는 다시 메인 스레드로 전환.
 - Point-Free의 공식 문서 강조:
   - Store를 멀티스레드에서 동시에 접근하는 건 안전하지 않으며, Reducer 호출과 State 변환은 항상 메인 스레드에서 이뤄져야 함.
-- 그래서!?
+- 해결 방안
   - View로써의 TCA를 사용하고, 의존성을 주입하는 `Remote/Local Data를 Actor로 구현`하는 방향으로 작업 중
   - async await + actor로 쓰레드 순서 보장이 될테고, Apple에서 미뤄주고 있으니까
 
