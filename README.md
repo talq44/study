@@ -6,3 +6,5 @@
 - [Chapter 2. State & Actions](TCA/Chapter2.md)
 - [Chapter 3. Reducers](TCA/Chapter3.md)
 - [Chapter 4. The Store](TCA/Chapter4.md)
+- [Chapter 5. Effect](TCA/Chapter5.md)
+- [Chapter 6. Composability](TCA/Chapter6.md)
