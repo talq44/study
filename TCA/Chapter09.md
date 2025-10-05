@@ -92,7 +92,7 @@ struct SettingsView: View {
 ```swift
 struct AppFeature: Reducer {
   struct State: Equatable {
-    @PresentationState var path: StackState<Path.State> = StackState()
+    var path: StackState<Path.State> = .init()
   }
   enum Action: Equatable {
     case path(StackAction<Path.State, Path.Action>)
