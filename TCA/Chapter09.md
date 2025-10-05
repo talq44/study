@@ -84,7 +84,7 @@ struct SettingsView: View {
 }
 ```
 - @PresentationState : 모달/네비게이션 상태를 State로 표현
-- store.scope(state: \.$destination, action: Action.destination) : View와 Reducer 연결
+- store.scope(state: \.$destination, action: SettingsFeature.Action.destination) : View와 Reducer 연결
 - SwitchStore : enum 기반 화면 전환 (Destination 패턴)
 
 ## NavigationStack 관리
