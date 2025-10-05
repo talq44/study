@@ -140,3 +140,6 @@ struct SettingsView: View {
 - @BindingState, BindingAction, BindingReducer() → 양방향 데이터 처리 간소화
 - Navigation/Sheet/Alert도 @PresentationState 기반으로 선언적 관리 가능
 - UI 이벤트를 Reducer에서 완전히 제어 가능
+
+## 참고
+- https://axiomatic-fuschia-666.notion.site/Chapter-4-TCA-Binding-87f748b3f8fa41a08a9089d78aeb422c
