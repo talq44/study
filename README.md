@@ -9,3 +9,4 @@
 - [Chapter 5. Effect](TCA/Chapter5.md)
 - [Chapter 6. Composability](TCA/Chapter6.md)
 - [Chapter 7. Testing](TCA/Chapter7.md)
+- [Chapter 8. Ergonomics](TCA/Chapter8.md)
