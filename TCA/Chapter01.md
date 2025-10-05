@@ -1,4 +1,4 @@
- # Introduction & Motivation
+ # Chapter 1. Introduction & Motivation
 
  ## 왜 새로운 아키텍처가 필요한가?
  - 앱이 커지면 상태(state) 와 부수효과(side effect) 가 얽히면서 복잡성이 폭발
