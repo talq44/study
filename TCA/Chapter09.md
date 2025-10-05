@@ -181,3 +181,6 @@ NavigationStackStore, .sheet(store:), .alert(store:) | SwiftUI와 완전 통합�
 - @PresentationState, @PresentationAction, StackState, SwitchStore가 핵심
 - View는 단순히 Store에 연결할 뿐, 화면 전환의 주체는 Reducer
 - Push / Sheet / Alert / FullScreenCover 모두 같은 방식으로 통일
+
+## 참고링크
+- https://axiomatic-fuschia-666.notion.site/Chapter-8-Navigation-855a4db02ef346e5b6ff8c35c7db3096
