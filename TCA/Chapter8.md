@@ -22,6 +22,8 @@ struct ProfileFeature: Reducer {
     Reduce { state, action in
       switch action {
       case .binding:
+        // BindingReducer에 의해 처리되므로 이 케이스는 실행되지 않지만,
+        // 컴파일러의 switch문 완전성 검사를 통과하기 위해 필요합니다.
         return .none
       case .saveButtonTapped:
         print("Saved: \(state.username), private: \(state.isPrivate)")
