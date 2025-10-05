@@ -156,7 +156,7 @@ struct AppView: View {
 ## 최신 버전(1.x)에서의 네비게이션 변화 요약
 항목 | 설명
 -- | --
-@PresentationState | 모달, 시트, Alert, NavigationStack 등을 모두 표현 가능
+@PresentationState | 모달, 시트, Alert 등 단일 프리젠테이션 상태를 표현 가능
 @PresentationAction | UI 이벤트를 Reducer로 자동 전달
 StackState / StackAction | NavigationStack 상태/이벤트 모델링
 SwitchStore, CaseLet | Enum-based 화면 분기 처리
